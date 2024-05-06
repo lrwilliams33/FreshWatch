@@ -2,29 +2,29 @@ const express = require('express')
 
 const router = express.Router()
 
-// GET all items
+// GET all users
 router.get('/', (req, res) => {
-  res.json({mssg: 'GET all items'})
+  res.json({mssg: 'GET all users'})
 })
 
-// GET a single item
+// GET a single user
 router.get('/:id', (req, res) => {
-  res.json({mssg: 'GET a single item'})
+  res.json({mssg: 'GET a single user'})
 })
 
-// POST a new item
+// POST a new user
 router.post('/', (req, res) => {
-  res.json({mssg: 'POST a new item'})
+  res.json({mssg: 'POST a new user'})
 })
 
-// DELETE a item
+// DELETE a user
 router.delete('/:id', (req, res) => {
-  res.json({mssg: 'DELETE an item'})
+  res.json({mssg: 'DELETE an user'})
 })
 
-// UPDATE a item
+// UPDATE a user
 router.patch('/:id', (req, res) => {
-  res.json({mssg: 'UPDATE an item'})
+  res.json({mssg: 'UPDATE an user'})
 })
 
 module.exports = router
