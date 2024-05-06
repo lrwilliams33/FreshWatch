@@ -7,7 +7,7 @@ const ItemForm = () => {
 
     <h3>Item and Expiration Date Form</h3>
 
-    <label>Type Item!!!!!!!!!!!!!: </label>
+    <label>Type Item Updated: </label>
     <input type='text'/>
 
     <label>Enter Expiration Date: </label>
