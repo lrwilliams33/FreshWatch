@@ -1,30 +1,29 @@
 const express = require('express')
 
+const {
+  getUsers,
+  getUser,
+  createUser,
+  deleteUser,
+  updateUser
+} = require('../controllers/userController')
+
 const router = express.Router()
 
 // GET all users
-router.get('/', (req, res) => {
-  res.json({mssg: 'GET all users'})
-})
+router.get('/', getUsers)
 
-// GET a single user
-router.get('/:id', (req, res) => {
-  res.json({mssg: 'GET a single user'})
-})
+
+//GET a single user
+router.get('/:id', getUser)
 
 // POST a new user
-router.post('/', (req, res) => {
-  res.json({mssg: 'POST a new user'})
-})
+router.post('/', createUser)
 
-// DELETE a user
-router.delete('/:id', (req, res) => {
-  res.json({mssg: 'DELETE an user'})
-})
+//DELETE a single user
+router.delete('/:id', deleteUser)
 
-// UPDATE a user
-router.patch('/:id', (req, res) => {
-  res.json({mssg: 'UPDATE an user'})
-})
+// UPDATE a single user
+router.patch('/:id', updateUser)
 
 module.exports = router
