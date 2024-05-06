@@ -1,0 +1,14 @@
+.item-title {
+  margin: 0;
+}
+
+.exp-date-txt {
+  margin: 0;
+  display: inline-flex;
+}
+
+.exp-date {
+  margin: 0 0 0 6px;
+  display: inline-flex;
+  font-size: 12px;
+}
