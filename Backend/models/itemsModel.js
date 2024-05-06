@@ -8,7 +8,7 @@ const itemsSchema = new Schema({
     required: true
   },
   expirationDate: {
-    type: String,
+    type: Date,
     required: true
   },
 }, { timestamps: true })
