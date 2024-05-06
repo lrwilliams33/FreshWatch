@@ -10,7 +10,7 @@ const ItemForm = () => {
     <label>Type Item Updated: </label>
     <input type='text'/>
 
-    <label>Enter Expiration Date: </label>
+    <label>Enter Expiration Date Updated: </label>
     <input type='date'/>
 
     <button>Submit</button>
