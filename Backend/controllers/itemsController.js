@@ -1,83 +1,83 @@
-const Workout = require('../models/workoutModel')
+const Item = require('../models/itemsModel')
 const mongoose = require('mongoose')
 
-// get all workouts
-const getWorkouts = async (req, res) => {
-  const workouts = await Workout.find({}).sort({createdAt: -1})
+// get all items
+const getItems = async (req, res) => {
+  const items = await Item.find({}).sort({createdAt: -1})
 
-  res.status(200).json(workouts)
+  res.status(200).json(items)
 }
 
-// get a single workout
-const getWorkout = async (req, res) => {
+// get a single item
+const getItem = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({error: 'No such workout'})
+    return res.status(404).json({error: 'No such item'})
   }
 
-  const workout = await Workout.findById(id)
+  const item = await Item.findById(id)
 
-  if (!workout) {
-    return res.status(404).json({error: 'No such workout'})
+  if (!item) {
+    return res.status(404).json({error: 'No such item'})
   }
 
-  res.status(200).json(workout)
+  res.status(200).json(item)
 }
 
-// create a new workout
-const createWorkout = async (req, res) => {
-  const {title, load, reps} = req.body
+// create a new item
+const createItem = async (req, res) => {
+  const {title, expirationDate} = req.body
 
   // add to the database
   try {
-    const workout = await Workout.create({ title, load, reps })
-    res.status(200).json(workout)
+    const item = await Item.create({ title, expirationDate })
+    res.status(200).json(item)
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
 }
 
-// delete a workout
-const deleteWorkout = async (req, res) => {
+// delete a item
+const deleteItem = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({error: 'No such workout'})
+    return res.status(400).json({error: 'No such item'})
   }
 
-  const workout = await Workout.findOneAndDelete({_id: id})
+  const item = await Item.findOneAndDelete({_id: id})
 
-  if(!workout) {
-    return res.status(400).json({error: 'No such workout'})
+  if(!item) {
+    return res.status(400).json({error: 'No such item'})
   }
 
-  res.status(200).json(workout)
+  res.status(200).json(item)
 }
 
-// update a workout
-const updateWorkout = async (req, res) => {
+// update a item
+const updateItem = async (req, res) => {
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({error: 'No such workout'})
+    return res.status(400).json({error: 'No such item'})
   }
 
-  const workout = await Workout.findOneAndUpdate({_id: id}, {
+  const item = await Item.findOneAndUpdate({_id: id}, {
     ...req.body
   })
 
-  if (!workout) {
-    return res.status(400).json({error: 'No such workout'})
+  if (!item) {
+    return res.status(400).json({error: 'No such item'})
   }
 
-  res.status(200).json(workout)
+  res.status(200).json(item)
 }
 
 module.exports = {
-  getWorkouts,
-  getWorkout,
-  createWorkout,
-  deleteWorkout,
-  updateWorkout
+  getItems,
+  getItem,
+  createItem,
+  deleteItem,
+  updateItem
 }
