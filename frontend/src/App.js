@@ -3,8 +3,6 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 //pages+components
 import Home from "./pages/Home";
 import Header from './components/Header/Header'
-import ItemCard from "./components/ItemCard/ItemCard"
-import ItemForm from"./components/ItemForm/ItemForm"
 import Login from "./pages/Login/Login"
 import Signup from "./pages/SignUp/SignUp"
 
