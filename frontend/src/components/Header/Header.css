@@ -1,4 +1,29 @@
-.header {
+header {
+  background-color: rgb(35, 35, 35);
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.fresh-watch-txt:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+
+/* .header {
   height: 62px;
   display: flex;
   flex-direction: row;
@@ -23,8 +48,4 @@
   font-size: 30px;
 }
 
-.fresh-watch-txt:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-}
+*/

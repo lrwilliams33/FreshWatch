@@ -1,6 +1,8 @@
-import Header from "../components/Header/Header";
+
 import ItemCard from "../components/ItemCard/ItemCard";
-import ItemForm from"../components/ItemForm";
+import ItemForm from "../components/ItemForm/ItemForm";
+
+import './Home.css'
 
 import { useEffect, useState } from "react";
 
@@ -21,23 +23,16 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='home' style={{ display: 'flex', justifyContent: 'center' }}>
-        <Header />
-        <div className="main-container" style={{ marginTop: '100px' }}>
-          <div className="items">
-            { items && items.map((item) => {
-              console.log(item.title, item.expirationDate);
-              return (
-                <ItemCard
-                  key={item._id}
-                  title={item.title}
-                  expDate={item.expirationDate}
-                />
-              )
-            })}
-          </div>
-          {/* <ItemForm></ItemForm> */}
-        </div>
+    <div className="home">
+      <div className="items">
+        {items && items.map(item => (
+          <ItemCard 
+            item={item} 
+            key={item._id} 
+          />
+        ))}
+      </div>
+      <ItemForm />
     </div>
   )
 }

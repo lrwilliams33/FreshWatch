@@ -1,12 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
   return (
-    <div className="header">
-      <p className="fresh-watch-txt">FreshWatch</p>
-    </div>
-  );
+    <header>
+      <div className="container">
+        <Link className='fresh-watch-txt' to="/">
+          <h1>FreshWatch</h1>
+        </Link>
+      </div>
+    </header>
+  )
 }
 
 export default Header;
