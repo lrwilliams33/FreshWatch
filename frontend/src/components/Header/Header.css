@@ -1,0 +1,31 @@
+.header {
+  height: 62px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background-color: rgb(35, 35, 35);
+  border-bottom-width: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fresh-watch-txt {
+  margin-left: 12px;
+  color: var(--primary);
+  font-weight: 1000;
+  font-size: 30px;
+}
+
+.fresh-watch-txt:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  
+}
