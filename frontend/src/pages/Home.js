@@ -1,13 +1,12 @@
-
 import ItemCard from "../components/ItemCard/ItemCard";
 import ItemForm from "../components/ItemForm/ItemForm";
-
+import { useItemsContext } from "../hooks/useItemsContext";
+import { useEffect } from "react";
 import './Home.css'
 
-import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [items, setItems] = useState();
+  const { items, dispatch } = useItemsContext()
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -15,7 +14,7 @@ const Home = () => {
       const resJson = await response.json();
 
       if (response.ok) {
-        setItems(resJson);
+        dispatch({ type: 'SET_ITEMS', payload: resJson })
       }
     }
 

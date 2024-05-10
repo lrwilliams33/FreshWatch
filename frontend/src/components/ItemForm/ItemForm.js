@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useItemsContext } from "../../hooks/useItemsContext"
 import './ItemForm.css'
 
 const ItemForm = () => {
+  const { dispatch } = useItemsContext()
   const[title, setTitle] = useState('')
   const[expirationDate, setExpirationDate] = useState('')
   const[error, setError] = useState(null)
@@ -27,9 +29,10 @@ const ItemForm = () => {
     if(response.ok) {
         setError(null)
         console.log('new item details added', json)
+        setTitle('')
+        setExpirationDate('')
+        dispatch({ type: 'CREATE_ITEM', payload: json })
     }
-    setTitle('')
-    setExpirationDate('')
   }
 
   return (
