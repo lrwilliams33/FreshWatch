@@ -21,7 +21,7 @@ const Signup = () => {
         <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
         <label>Password</label>
         <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type='submit' disabled={isLoading}>Signup</button>
+        <button type='submit' disabled={isLoading}>Sign Up</button>
         {error && <div className='error'>{error}</div>}
     </form>
   )

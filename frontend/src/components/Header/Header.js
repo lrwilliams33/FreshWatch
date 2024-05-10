@@ -17,11 +17,11 @@ const Header = () => {
         </Link>
         <nav>
           <div>
-            <button onClick={handleClick}>Log out</button>
+            <button onClick={handleClick} className='button'>Log out</button>
           </div>
           <div>
             <Link to="/login">Login </Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">Sign Up</Link>
           </div>
         </nav>
       </div>
