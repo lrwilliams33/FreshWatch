@@ -14,12 +14,22 @@ input {
 
 form button {
   background: var(--primary);
+  width: 100%;
+  font-size: 18px;
   border: 0;
   color: #fff;
-  padding: 10px;
+  padding: 5px;
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
+}
+
+form button:hover {
+  background-color: rgb(80, 170, 80);
+}
+
+form button:active {
+  background-color: rgb(91, 174, 91);
 }
 
 div.error {

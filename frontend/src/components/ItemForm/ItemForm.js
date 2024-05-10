@@ -7,6 +7,7 @@ const ItemForm = () => {
   const[title, setTitle] = useState('')
   const[expirationDate, setExpirationDate] = useState('')
   const[error, setError] = useState(null)
+  const [emptyFields, setEmptyFields] = useState([])
 
   const handleSetTitle = (e) => {setTitle(e.target.value)}
   const handleSetExpirationDate = (e) => {setExpirationDate(e.target.value)}
@@ -25,12 +26,14 @@ const ItemForm = () => {
 
     if(!response.ok) {
         setError(json.error)
+        setEmptyFields(json.emptyFields)
     }
     if(response.ok) {
         setError(null)
-        console.log('new item details added', json)
         setTitle('')
         setExpirationDate('')
+        setEmptyFields([])
+        console.log('new item details added', json)
         dispatch({ type: 'CREATE_ITEM', payload: json })
     }
   }
@@ -39,15 +42,23 @@ const ItemForm = () => {
 
    <form onSubmit={handleSubmit}>
 
-    <h3>Item and Expiration Date Form</h3>
-
-    <label>Type Item: </label>
-    <input type='text' value={title} onChange={handleSetTitle} required/>
-
-    <label>Enter Expiration Date Updated: </label>
-    <input type='date' value={expirationDate} onChange={handleSetExpirationDate} required/>
-
-    <button type="submit">Submit</button>
+    <h3>Add An Item</h3>
+    <label>Item Name: </label>
+    <input 
+      type='text' 
+      value={title} 
+      onChange={handleSetTitle} 
+      className={ emptyFields.includes('title') ? 'error' : '' }
+    />
+    <label>Expiration Date: </label>
+    <input 
+      type='date' 
+      value={expirationDate} 
+      onChange={handleSetExpirationDate}
+      className={ emptyFields.includes('expirationDate') ? 'error' : '' }
+    />
+    <button type="submit">+</button>
+    {error && <div className="error">{error}</div>}
    </form>
   )
 }

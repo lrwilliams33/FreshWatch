@@ -3,3 +3,9 @@
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
+.items {
+  display: flex; /* Use flexbox for the items container */
+  flex-direction: column; /* Align items vertically */
+  align-items: center; /* Center items horizontally */
+}

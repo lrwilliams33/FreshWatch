@@ -1,22 +1,33 @@
-import React from 'react';
+import EditIcon from '@mui/icons-material/Edit';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Tooltip } from '@mui/material';
+import { useItemsContext } from '../../hooks/useItemsContext'
+import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 import './ItemCard.css'
 
 const ItemCard = ({ item }) => {
+  const {dispatch} = useItemsContext()
+
+  const handleClick = async () => {
+    const response = await fetch('/api/items/' + item._id, {
+      method: 'DELETE'
+    })
+    const json = await response.json()
+
+    if (response.ok) {
+      dispatch({ type: 'DELETE_ITEM', payload: json })
+    }
+  }
+
   return (
     <div className="item-details">
       <h4>{ item.title }</h4>
-      <p><strong>Expiration Date: </strong>{ item.expirationDate }</p>
+      <p><strong>Expiration Date: </strong>{ formatDistanceToNow(new Date(item.createdAt), { addSuffix: true }) }</p>
+      <Tooltip title='Delete Item' arrow>
+          <ClearIcon className='delete-icon' onClick={handleClick}></ClearIcon>
+      </Tooltip>
     </div>
   )
 }
-// const ItemCard = ({ title, expDate }) => {
-//   return (
-//     <div className='item-card-container'>
-//       <h3 className='item-title'>{ title }</h3>
-//       <h5 className='exp-date-txt'>Expiration Date: </h5>
-//       <p className='exp-date'>{ expDate }</p>
-//     </div>
-//   );
-// }
 
 export default ItemCard;

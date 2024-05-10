@@ -1,7 +1,8 @@
 .item-details {
   background: #262626;
+  width: 100%;
   border-radius: 4px;
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
@@ -30,27 +31,34 @@
   color: #333;
 }
 
-/* .item-card-container {
-  background-color: rgb(40, 39, 39);
-  margin-bottom: 20px;
-  padding: 16px;
-  border-radius: 10px;
-  height: 50px;
+.delete-icon {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+  background: #494949;
+  padding: 6px;
+  border-radius: 50%;
+  color: #000000;
 }
 
-.item-title {
-  margin: 0;
-  color: var(--primary);
+.delete-icon:hover {
+  background-color: #585757;
 }
 
-.exp-date-txt {
-  margin: 0;
-  display: inline-flex;
-  color: rgb(95, 71, 71);
+.delete-icon:active {
+  background-color: #737373;
 }
 
-.exp-date {
-  margin: 0 0 0 6px;
-  display: inline-flex;
-  font-size: 12px;
-} */
+input.error {
+  border: 2px solid var(--error);
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
