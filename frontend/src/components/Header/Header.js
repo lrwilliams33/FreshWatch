@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import {useLogout} from '../../hooks/useLogout'
 import './Header.css'
 
 const Header = () => {
+  const {logout} = useLogout()
+  
+  const handleClick = () => {
+    logout()
+  }
   return (
     <header>
       <div className="container">
@@ -11,8 +17,11 @@ const Header = () => {
         </Link>
         <nav>
           <div>
+            <button onClick={handleClick} className='button'>Log out</button>
+          </div>
+          <div>
             <Link to="/login">Login </Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">Sign Up</Link>
           </div>
         </nav>
       </div>
