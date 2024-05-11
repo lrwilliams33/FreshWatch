@@ -20,13 +20,13 @@ const ItemCard = ({ item }) => {
     }
   }
 
-  const createdAt = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+  // const createdAt = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
   const expirationDate = new Date(item.expirationDate);
   const expirationTimestamp = expirationDate.getTime();
   const isExpired = expirationTimestamp < Date.now();
 
-  //const createdAt = new Date(item.createdAt)
+  const createdAt = new Date(item.createdAt)
   const createdTimestamp = createdAt.getTime();
   const currentTime = Date.now();
   const timeElapsed = Math.max(0, currentTime - createdTimestamp);
