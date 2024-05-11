@@ -2,16 +2,23 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Tooltip } from '@mui/material';
 import LinearProgressWithLabel from '../LinearProgressWithLabel/LinearProgressWithLabel'
 import { useItemsContext } from '../../hooks/useItemsContext'
+import { useAuthContext } from '../../hooks/useAuthContext'
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 import { format } from 'date-fns'
 import './ItemCard.css'
 
 const ItemCard = ({ item }) => {
   const {dispatch} = useItemsContext()
-
+  const {user} = useAuthContext()
   const handleClick = async () => {
+    if (!user) {
+      return
+    }
     const response = await fetch('/api/items/' + item._id, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
     })
     const json = await response.json()
 
