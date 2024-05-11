@@ -34,15 +34,6 @@ const ItemCard = ({ item }) => {
   const percentExpired = (timeElapsed / totalDuration) * 100
   const finalPercentExpired = (percentExpired > 100) || (expirationTimestamp < createdTimestamp) ? 100 : percentExpired
 
-
-  console.log("expirationTimestamp:", expirationTimestamp);
-console.log("createdTimestamp:", createdTimestamp);
-console.log("currentTime:", currentTime);
-console.log("timeElapsed:", timeElapsed);
-console.log("totalDuration:", totalDuration);
-console.log("percent expired:", percentExpired);
-console.log();
-
   return (
     <div className="item-details">
       <div className="left-container">
