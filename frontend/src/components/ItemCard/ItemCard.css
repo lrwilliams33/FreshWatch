@@ -1,4 +1,6 @@
 .item-details {
+  display: flex;
+  align-items: center;
   background: #262626;
   width: 100%;
   border-radius: 4px;
@@ -20,21 +22,7 @@
   color: #555;
 }
 
-.item-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
-
 .delete-icon {
-  position: absolute;
-  top: 30px;
-  right: 20px;
   cursor: pointer;
   background: #494949;
   padding: 6px;
@@ -61,4 +49,21 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+
+.expired-txt {
+  color: rgb(196, 58, 58);
+}
+
+.left-container {
+  flex: 1;
+}
+
+.middle-container {
+  flex: 2;
+}
+
+.right-container {
+  flex: 0.5;
+  text-align: right;
 }
