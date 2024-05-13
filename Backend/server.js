@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const itemRoutes = require('./routes/items')
 const userRoutes = require('./routes/user')
 const iCalendarRoutes = require('./routes/iCalendar')
+const emailRoutes = require('./routes/emails')
 
 // express app
 const app = express()
@@ -21,6 +22,8 @@ app.use((req, res, next) => {
 app.use('/api/items', itemRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/iCalendar', iCalendarRoutes)
+app.use('/api/send-email', emailRoutes)
+
 //connect to mongodb
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

@@ -72,6 +72,7 @@ const Home = () => {
       </div>
       <ItemForm />
       <ICalendarGenerator />
+      <button onClick={sendMail}>Send Email</button>
     </div>
   )
 }
