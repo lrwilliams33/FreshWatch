@@ -7,7 +7,11 @@ const {
   updateItem
 } = require('../controllers/itemsController')
 
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+router.use(requireAuth)
 
 // GET all items
 router.get('/', getItems)

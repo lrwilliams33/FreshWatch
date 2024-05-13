@@ -1,27 +1,35 @@
 import ItemCard from "../components/ItemCard/ItemCard";
 import ItemForm from "../components/ItemForm/ItemForm";
 import { useItemsContext } from "../hooks/useItemsContext";
+import {useAuthContext} from '../hooks/useAuthContext'
 import { useEffect, useState } from "react";
 import SearchBar from './../components/SearchBar/SearchBar'
 import './Home.css'
+import ICalendarGenerator from "../components/ICalendarGenerator/ICalendarGenerator";
 
 
 const Home = () => {
   const { items, dispatch } = useItemsContext()
   const [searchQuery, setSearchQuery] = useState('');
+  const { user } = useAuthContext()
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch('/api/items');
+      const response = await fetch('/api/items', {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      });
       const resJson = await response.json();
 
       if (response.ok) {
         dispatch({ type: 'SET_ITEMS', payload: resJson })
       }
     }
-
-    fetchItems();
-  }, [dispatch])
+    if (user){
+      fetchItems();
+    }
+  }, [dispatch, user])
 
   const filteredItems = items && items.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -63,7 +71,7 @@ const Home = () => {
         ))}
       </div>
       <ItemForm />
-      <button onClick={sendMail}>Send Email</button>
+      <ICalendarGenerator />
     </div>
   )
 }

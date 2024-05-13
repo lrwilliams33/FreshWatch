@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useItemsContext } from "../../hooks/useItemsContext"
+import { useAuthContext } from "../../hooks/useAuthContext"
 import './ItemForm.css'
 
 const ItemForm = () => {
@@ -8,18 +9,24 @@ const ItemForm = () => {
   const[expirationDate, setExpirationDate] = useState('')
   const[error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
+  const{user} = useAuthContext()
 
   const handleSetTitle = (e) => {setTitle(e.target.value)}
   const handleSetExpirationDate = (e) => {setExpirationDate(e.target.value)}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!user){
+      setError('You must be logged in to add an item')
+      return
+    }
     const itemDetails={title, expirationDate}
       const response = await fetch('/api/items', {
         method: 'POST',
         body: JSON.stringify(itemDetails),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
         }
     })
     const json = await response.json()
