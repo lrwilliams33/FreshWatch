@@ -27,6 +27,27 @@ const Home = () => {
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const sendMail = async () => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+    
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      // const data = await response.json();
+      //   console.log(data.message);
+    } catch (error) {
+      console.error('Error:', error.message);
+      console.error('Error:');
+    }
+  }
+
   return (
     <div className="home">
       <div className="items">
@@ -42,6 +63,7 @@ const Home = () => {
         ))}
       </div>
       <ItemForm />
+      <button onClick={sendMail}>Send Email</button>
     </div>
   )
 }
