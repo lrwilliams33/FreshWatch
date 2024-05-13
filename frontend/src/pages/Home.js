@@ -5,6 +5,7 @@ import {useAuthContext} from '../hooks/useAuthContext'
 import { useEffect, useState } from "react";
 import SearchBar from './../components/SearchBar/SearchBar'
 import './Home.css'
+import ICalendarGenerator from "../components/ICalendarGenerator/ICalendarGenerator";
 
 
 const Home = () => {
@@ -49,6 +50,7 @@ const Home = () => {
         ))}
       </div>
       <ItemForm />
+      <ICalendarGenerator />
     </div>
   )
 }
