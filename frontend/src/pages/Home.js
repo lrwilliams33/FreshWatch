@@ -44,15 +44,12 @@ const Home = () => {
         },
       })
     
-      // if (!response.ok) {
-      //   throw new Error('Failed to send email');
-      // }
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
 
-      //   const data = await response.json();
-      //   console.log(data.message);
     } catch (error) {
-      // console.error('Error:', error.message);
-      // console.error('Error:');
+      console.error('Error:', error.message);
     }
   }
 

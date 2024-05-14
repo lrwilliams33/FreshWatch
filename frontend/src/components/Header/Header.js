@@ -20,7 +20,7 @@ const Header = () => {
           {user && (
           <div>
             <span>{user.email}</span>
-            <button onClick={handleClick} className='button'>Log out</button>
+            <button onClick={handleClick} className='button' id='logout-btn'>Log out</button>
           </div>
           )}
           {!user && (

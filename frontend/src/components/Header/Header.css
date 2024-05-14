@@ -1,5 +1,5 @@
 header {
-  background-color: rgb(35, 35, 35);
+  background-color: var(--header-color);
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -26,7 +26,7 @@ header a {
 }
 
 header .button {
-  background: rgb(35, 35, 35);
+  background: var(--header-color);
   color: var(--primary);
   border: 2px solid var(--primary);
   padding: 6px 10px;
@@ -36,30 +36,8 @@ header .button {
   margin-left: 10px;
 }
 
-
-/* .header {
-  height: 62px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-
-  background-color: rgb(35, 35, 35);
-  border-bottom-width: 1px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+#logout-btn:hover {
+  transition: 0.3s ease;
+  background-color: var(--primary);
+  color: rgb(35, 35, 35);
 }
-
-.fresh-watch-txt {
-  margin-left: 12px;
-  color: var(--primary);
-  font-weight: 1000;
-  font-size: 30px;
-}
-
-*/

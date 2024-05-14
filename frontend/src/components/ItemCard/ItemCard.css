@@ -1,7 +1,8 @@
 .item-details {
   display: flex;
   align-items: center;
-  background: #262626;
+  /* background: #262626; */
+  background-color: var(--header-color);
   width: 100%;
   border-radius: 4px;
   margin: 10px auto;
@@ -19,23 +20,24 @@
 .item-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: #555555;
 }
 
 .delete-icon {
   cursor: pointer;
-  background: #494949;
+  /* background: #494949; */
+  background-color: rgb(206, 206, 206);
   padding: 6px;
   border-radius: 50%;
-  color: #000000;
+  color: #626262;
 }
 
 .delete-icon:hover {
-  background-color: #585757;
+  background-color: #bdbdbd;
 }
 
 .delete-icon:active {
-  background-color: #737373;
+  background-color: #a5a5a5;
 }
 
 input.error {

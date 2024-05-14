@@ -16,7 +16,10 @@ const sendEmail = async (req, res) => {
 
     const sentFrom = new Sender("freshwatch@trial-pxkjn41pzxp4z781.mlsender.net ", "Fresh Watch Team");
     // const recipients = [new Recipient("williamslandon333@gmail.com", "Landon")];
-    const recipients = [new Recipient("t.lu@ufl.edu", "Terrance")];
+    const recipients = [
+      // new Recipient("terrylu12212@gmail.com", "Terrance"),
+      new Recipient("williamslandon333@gmail.com", "Terrance"),
+    ];
 
     console.log('Recipients defined');
 

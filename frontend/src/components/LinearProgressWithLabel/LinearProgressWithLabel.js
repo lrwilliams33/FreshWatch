@@ -6,10 +6,8 @@ import Box from '@mui/material/Box';
 
 export default function LinearProgressWithLabel({ value }) {
   const getBackgroundColor = (value) => {
-    const percent = value / 100;
-    const red = percent * 255;
-    const green = (1 - percent) * 255;
-    return `linear-gradient(to right, rgb(${red}, ${green}, 0), rgb(${red}, ${green}, 0))`;
+    const hue = (1 - value / 100) * 120; // 0 is red, 120 is green
+    return `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(${hue}, 100%, 50%))`;
   };
 
   return (
