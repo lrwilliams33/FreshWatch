@@ -38,21 +38,21 @@ const Home = () => {
   const sendMail = async () => {
     try {
       const response = await fetch('/api/send-email', {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         },
       })
     
-      if (!response.ok) {
-        throw new Error('Failed to send email');
-      }
+      // if (!response.ok) {
+      //   throw new Error('Failed to send email');
+      // }
 
-      // const data = await response.json();
+      //   const data = await response.json();
       //   console.log(data.message);
     } catch (error) {
-      console.error('Error:', error.message);
-      console.error('Error:');
+      // console.error('Error:', error.message);
+      // console.error('Error:');
     }
   }
 
