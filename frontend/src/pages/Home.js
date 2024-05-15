@@ -31,6 +31,7 @@ const Home = () => {
     }
   }, [dispatch, user])
 
+  // searchbar filter
   const filteredItems = items && items.filter((item) =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
