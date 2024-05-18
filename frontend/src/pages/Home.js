@@ -61,6 +61,7 @@ const Home = () => {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
+        {items && items.length === 0 && <h2>No items to display</h2>}
         {items && filteredItems.map((item) => (
             <ItemCard 
               item={item} 

@@ -1,9 +1,8 @@
 const cron = require('node-cron');
 const { checkFoodExpiration } = require('./expirationChecker');
-console.log('Scheduler called');
 
 // Schedule task to run every day at 8:00 AM, set the timezone if necessary (syntax: minute hour) in military time
-cron.schedule('54 21 * * *', () => {
+cron.schedule('00 8 * * *', () => {
   console.log('Running scheduled task: checkFoodExpiration');
   try {
     checkFoodExpiration();
