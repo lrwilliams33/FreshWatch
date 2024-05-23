@@ -22,13 +22,13 @@ const Header = () => {
           {user && (
           <div>
             <span>{user.email}</span>
-            <button onClick={handleClick} className='button' id='logout-btn'>Log out</button>
+            <button onClick={handleClick} className='logout-btn'>Log out</button>
           </div>
           )}
           {!user && (
           <div>
-            <Link to="/login">Login </Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup" className='signup-btn'>Sign Up</Link>
+            <Link to="/login" className='login-btn'>Login </Link>
           </div>
           )}
         </nav>
