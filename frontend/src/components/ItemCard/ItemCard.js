@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { Tooltip } from '@mui/material';
@@ -6,6 +7,7 @@ import { useItemsContext } from '../../hooks/useItemsContext'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { formatDistanceToNow } from 'date-fns/formatDistanceToNow'
 import { format } from 'date-fns'
+import AiPopUp from '../AiPopUp/AiPopUp';
 import './ItemCard.css'
 
 const ItemCard = ({ item }) => {
@@ -27,6 +29,15 @@ const ItemCard = ({ item }) => {
       dispatch({ type: 'DELETE_ITEM', payload: json })
     }
   }
+
+  // ai popup
+  const [open, setOpen] = useState(false);
+  const handleIdeaClick = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const createdAt = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
@@ -58,7 +69,8 @@ const ItemCard = ({ item }) => {
       </div>
       <div className="right-container">
         <Tooltip title='Generate Meal Idea' arrow>
-            <TipsAndUpdatesIcon className='idea-icon'></TipsAndUpdatesIcon>
+            <TipsAndUpdatesIcon className='idea-icon' onClick={handleIdeaClick}></TipsAndUpdatesIcon>
+            <AiPopUp open={open} handleClose={handleClose} itemName={item.title}></AiPopUp>
         </Tooltip>
         <Tooltip title='Delete Item' arrow>
             <ClearIcon className='delete-icon' onClick={handleClearClick}></ClearIcon>

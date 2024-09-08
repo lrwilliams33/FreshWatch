@@ -6,7 +6,20 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function CalendarPopUp({ open, handleClose }) {
+export default function AiPopUp({ open, handleClose, itemName }) {
+  
+  // save meal idea as a text file
+  const [mealIdea, setMealIdea] = React.useState("This is a sample meal idea for " + itemName + ".");
+  const handleSaveIdea = () => {
+    const blob = new Blob([mealIdea], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${itemName}_meal_idea.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <React.Fragment>
       <Dialog
@@ -16,16 +29,17 @@ export default function CalendarPopUp({ open, handleClose }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"How To Use Calendar"}
+          AI Generated Meal Idea for {itemName}:
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            To generate the Apple Calendar, please email yourself the downloaded file into the Mail App. 
-            Using any email client other than the Mail App will not work. Afterwords, simply click on the attachment and it will be added to your calendar.
+            
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>OK</Button>
+          <Button onClick={handleClose}>Discard</Button>
+          <Button>Generate New Idea</Button>
+          <Button onClick={handleSaveIdea}>Save Idea</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>

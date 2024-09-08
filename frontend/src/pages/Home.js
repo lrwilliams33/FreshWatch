@@ -4,8 +4,8 @@ import { useItemsContext } from "../hooks/useItemsContext";
 import {useAuthContext} from '../hooks/useAuthContext'
 import { useEffect, useState } from "react";
 import SearchBar from './../components/SearchBar/SearchBar'
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import './Home.css'
-import ICalendarGenerator from "../components/ICalendarGenerator/ICalendarGenerator";
 
 
 const Home = () => {
@@ -61,6 +61,7 @@ const Home = () => {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
+        <div className="idea-reminder">Don't know what to make with your item? Press {<TipsAndUpdatesIcon fontSize="small"/>} to view an AI generated meal idea for that item!</div>
         {items && items.length === 0 && <h2>No items to display</h2>}
         {items && filteredItems.map((item) => (
             <ItemCard 
