@@ -1,4 +1,5 @@
 import ClearIcon from '@mui/icons-material/Clear';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { Tooltip } from '@mui/material';
 import LinearProgressWithLabel from '../LinearProgressWithLabel/LinearProgressWithLabel'
 import { useItemsContext } from '../../hooks/useItemsContext'
@@ -10,7 +11,7 @@ import './ItemCard.css'
 const ItemCard = ({ item }) => {
   const {dispatch} = useItemsContext()
   const {user} = useAuthContext()
-  const handleClick = async () => {
+  const handleClearClick = async () => {
     if (!user) {
       return
     }
@@ -25,6 +26,10 @@ const ItemCard = ({ item }) => {
     if (response.ok) {
       dispatch({ type: 'DELETE_ITEM', payload: json })
     }
+  }
+
+  const handleIdeaClick = () => {
+    return;
   }
 
   const createdAt = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
@@ -56,8 +61,11 @@ const ItemCard = ({ item }) => {
         <LinearProgressWithLabel className='progressBar' value={finalPercentExpired}/>
       </div>
       <div className="right-container">
+        <Tooltip title='Generate Meal Idea' arrow>
+            <TipsAndUpdatesIcon className='idea-icon' onClick={handleIdeaClick}></TipsAndUpdatesIcon>
+        </Tooltip>
         <Tooltip title='Delete Item' arrow>
-            <ClearIcon className='delete-icon' onClick={handleClick}></ClearIcon>
+            <ClearIcon className='delete-icon' onClick={handleClearClick}></ClearIcon>
         </Tooltip>
       </div>
     </div>

@@ -48,24 +48,23 @@ const ItemForm = () => {
   return (
 
    <form onSubmit={handleSubmit}>
-
-    <h3>Add An Item</h3>
-    <label>Item Name: </label>
-    <input 
-      type='text' 
-      value={title} 
-      onChange={handleSetTitle} 
-      className={ emptyFields.includes('title') ? 'error' : '' }
-    />
-    <label>Expiration Date: </label>
-    <input 
-      type='date' 
-      value={expirationDate} 
-      onChange={handleSetExpirationDate}
-      className={ emptyFields.includes('expirationDate') ? 'error' : '' }
-    />
-    <button type="submit">+</button>
-    {error && <div className="error">{error}</div>}
+      <h3>Add An Item</h3>
+      <label>Item Name: </label>
+      <input 
+        type='text' 
+        value={title} 
+        onChange={handleSetTitle} 
+        className={ emptyFields.includes('title') ? 'error' : '' }
+      />
+      <label>Expiration Date: </label>
+      <input 
+        type='date' 
+        value={expirationDate} 
+        onChange={handleSetExpirationDate}
+        className={ emptyFields.includes('expirationDate') ? 'error' : '' }
+      />
+      <button type="submit">+</button>
+      {error && <div className="error">{error}</div>}
    </form>
   )
 }

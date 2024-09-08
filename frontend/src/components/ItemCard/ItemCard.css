@@ -40,6 +40,30 @@
   background-color: #a5a5a5;
 }
 
+.idea-icon {
+  cursor: pointer;
+  /* background: #494949; */
+  background-color: rgb(206, 206, 206, 0);
+  padding: 6px;
+  border-radius: 50%;
+  color: #626262;
+  margin-right: 10px;
+}
+
+.idea-icon:hover {
+  background-color: #bdbdbd;
+}
+
+.idea-icon:active {
+  background-color: #a5a5a5;
+}
+
+@media (max-width: 996px) {
+  .idea-icon {
+    margin-right: 0px;
+  }
+}
+
 input.error {
   border: 2px solid var(--error);
 }
