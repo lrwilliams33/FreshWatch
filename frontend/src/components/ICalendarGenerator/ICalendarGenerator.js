@@ -1,10 +1,20 @@
 import { useAuthContext } from "../../hooks/useAuthContext"
+import { useState } from "react"
 import './ICalendarGenerator.css'
+import CalendarPopUp from "../calendarPopUp/calendarPopUp"
 
 const ICalendarGenerator = () => {
   const {user} = useAuthContext()
+    // calendar popup .............................
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+      setOpen(false);
+    };
+    // end calendar popup ..........................
+
   const handleButton = async () => {
     try{
+        setOpen(true);
         const response = await fetch('/api/iCalendar', {
             method: 'GET',
             headers: {
@@ -29,7 +39,8 @@ const ICalendarGenerator = () => {
   }
   return (
     <div>
-         <button onClick={handleButton} id="iCalButton">Generate Apple Calendar</button>
+        <button onClick={handleButton} id="iCalButton">Generate Apple Calendar</button>
+        <CalendarPopUp open={open} handleClose={handleClose}></CalendarPopUp>
     </div>
   )
 }

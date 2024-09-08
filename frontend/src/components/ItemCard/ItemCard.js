@@ -28,10 +28,6 @@ const ItemCard = ({ item }) => {
     }
   }
 
-  const handleIdeaClick = () => {
-    return;
-  }
-
   const createdAt = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
   const expirationDate = new Date(item.expirationDate);
@@ -62,7 +58,7 @@ const ItemCard = ({ item }) => {
       </div>
       <div className="right-container">
         <Tooltip title='Generate Meal Idea' arrow>
-            <TipsAndUpdatesIcon className='idea-icon' onClick={handleIdeaClick}></TipsAndUpdatesIcon>
+            <TipsAndUpdatesIcon className='idea-icon'></TipsAndUpdatesIcon>
         </Tooltip>
         <Tooltip title='Delete Item' arrow>
             <ClearIcon className='delete-icon' onClick={handleClearClick}></ClearIcon>
