@@ -1,4 +1,5 @@
 import { useAuthContext } from "../../hooks/useAuthContext"
+import './ICalendarGenerator.css'
 
 const ICalendarGenerator = () => {
   const {user} = useAuthContext()
@@ -28,10 +29,7 @@ const ICalendarGenerator = () => {
   }
   return (
     <div>
-        <p>To generate the Apple Calendar, please email yourself the downloaded file into the Mail App. 
-            Using any email client other than the Mail App will not work. Afterwords, simply click on the attachment and it will be added to your calendar.
-        </p>
-         <button onClick={handleButton}>Generate Apple Calendar</button>
+         <button onClick={handleButton} id="iCalButton">Generate Apple Calendar</button>
     </div>
   )
 }

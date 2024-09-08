@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useItemsContext } from "../../hooks/useItemsContext"
 import { useAuthContext } from "../../hooks/useAuthContext"
 import './ItemForm.css'
+import ICalendarGenerator from "../ICalendarGenerator/ICalendarGenerator.js"
 
 const ItemForm = () => {
   const { dispatch } = useItemsContext()
@@ -46,7 +47,7 @@ const ItemForm = () => {
   }
 
   return (
-
+    <div>
    <form onSubmit={handleSubmit}>
       <h3>Add An Item</h3>
       <label>Item Name: </label>
@@ -66,6 +67,8 @@ const ItemForm = () => {
       <button type="submit">+</button>
       {error && <div className="error">{error}</div>}
    </form>
+   <ICalendarGenerator></ICalendarGenerator>
+   </div>
   )
 }
 
