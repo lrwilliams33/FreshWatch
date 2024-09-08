@@ -6,6 +6,7 @@ const itemRoutes = require('./routes/items')
 const userRoutes = require('./routes/user')
 const iCalendarRoutes = require('./routes/iCalendar')
 const emailRoutes = require('./routes/emails')
+const openAIRoutes = require('./routes/openAI')
 
 // express app
 const app = express()
@@ -23,6 +24,7 @@ app.use('/api/items', itemRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/iCalendar', iCalendarRoutes)
 app.use('/api/send-email', emailRoutes)
+app.use('/api/openAI', openAIRoutes)
 
 //connect to mongodb
 mongoose.connect(process.env.MONGO_URI)
